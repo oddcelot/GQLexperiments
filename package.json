@@ -1,0 +1,12 @@
+{
+  "name": "my-yoga-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "dotenv-expand": "^4.2.0",
+    "graphql-yoga": "^1.16.0",
+    "prisma-binding": "^2.1.4"
+  }
+}

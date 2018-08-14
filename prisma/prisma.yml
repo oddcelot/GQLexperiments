@@ -1,0 +1,2 @@
+endpoint: $PRISMA_ENDPONT
+datamodel: datamodel.graphql
