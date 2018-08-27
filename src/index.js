@@ -94,9 +94,9 @@ const server = new GraphQLServer({
     ...req,
     prisma: new Prisma({
       typeDefs: 'src/generated/prisma.graphql',
-      endpoint: env.PRISMA_ENDPONT,
+      endpoint: env.PRISMA_ENDPOINT,
     }),
   }),
 })
 
-server.start(() => console.log(`GraphQL server is running on ${env.SERVER_ENDPONT}`))
+server.start(() => console.log(`GraphQL server is running on ${env.SERVER_ENDPOINT}`))

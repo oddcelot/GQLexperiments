@@ -3,7 +3,7 @@ projects:
     schemaPath: src/schema.graphql
     extensions:
       endpoints:
-        default: $SERVER_ENDPONT
+        default: $SERVER_ENDPOINT
   prisma:
     schemaPath: src/generated/prisma.graphql
     extensions:
