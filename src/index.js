@@ -37,8 +37,9 @@ const resolvers = {
       return context.prisma.query.users(
         {
           where: {
+            id: args.id,
             OR: [
-              { name_contains: args.searchString },
+              { name_contains: args.name },
             ],
           },
         },
