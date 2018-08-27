@@ -33,6 +33,18 @@ const resolvers = {
         info,
       )
     },
+    users: (_, args, context, info) => {
+      return context.prisma.query.users(
+        {
+          where: {
+            OR: [
+              { name_contains: args.searchString },
+            ],
+          },
+        },
+        info,
+      )
+    },
   },
   Mutation: {
     createDraft: (_, args, context, info) => {
