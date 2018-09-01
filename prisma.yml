@@ -1,0 +1,5 @@
+endpoint: "${env:PRISMA_HOST}:${env:PRISMA_PORT}/${env:PROJECT_NAME}/${env:PROJECT_STAGE}"
+datamodel: datamodel.graphql
+hooks:
+  post-deploy:
+    - graphql get-schema -p prisma
