@@ -12,31 +12,30 @@ services:
         port: 4466
         databases:
           default:
-            connector: mysql
-            host: mysql
-            port: 3306
-            user: root
-            password: "${MYSQL_PASSWORD}"
+            connector: postgres
+            host: postgres
+            port: 5432
+            user: "${DB_USER}"
+            password: "${DB_PASSWORD}"
             migrations: true
+
   adminer:
     image: hardware/adminer
     container_name: "${PROJECT_NAME}-adminer"
     restart: always
-    depends_on:
-      - mysql
     ports:
       - "${ADMINER_PORT}:8888"
     volumes:
       - ./adminer.css:/adminer/adminer.css
 
-  mysql:
-    image: mysql:5.7
-    container_name: "${PROJECT_NAME}-mysql-server"
+  postgres:
+    image: postgres
+    container_name: "${PROJECT_NAME}-postgres-server"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: "${MYSQL_PASSWORD}"
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
     volumes:
-      - mysql:/var/lib/mysql
-    command: --disable-partition-engine-check
+      - postgres:/var/lib/postgresql/data
 volumes:
-  ? mysql
+  ? postgres
